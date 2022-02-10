@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: redis-cluster
+
+  redis:
+    password: 123456
+    cluster:
+      nodes: # 集群节点 3主 3从
+        - 172.16.231.132:6379
+        - 172.16.231.133:6379
+        - 172.16.231.134:6379
+        - 172.16.231.135:6379
+        - 172.16.231.136:6379
+        - 172.16.231.137:6379
+      max-redirects: 3  # 最大重定向数
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1
+        min-idle: 2
